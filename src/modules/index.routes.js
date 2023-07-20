@@ -3,7 +3,9 @@ import { AppError } from "../utils/AppError.js";
 import { authRouter } from "./Auth/auth.router.js";
 import { addressRouter } from "./address/address.router.js";
 import { brandRouter } from "./brands/brand.router.js";
+import { cartRouter } from "./cart/cart.router.js";
 import { categoryRouter } from "./category/category.router.js";
+import { couponRouter } from "./coupon/coupon.router.js";
 import { productRouter } from "./product/product.router.js";
 import { reviewRouter } from "./review/review.router.js";
 import { subCategoryRouter } from "./subCategory/subCategory.router.js";
@@ -20,6 +22,10 @@ export const init = (app) => {
   app.use("/api/v1/reviews", reviewRouter);
   app.use("/api/v1/whishLists", wishlistRouter);
   app.use("/api/v1/addresses", addressRouter);
+  app.use("/api/v1/coupons", couponRouter);
+  app.use("/api/v1/carts", cartRouter);
+
+
   app.all("*", (req, res, next) => {
     next(new AppError(`can't find this route:${req.originalUrl}`, 404));
   });

@@ -1,13 +1,13 @@
 import express from "express";
-import * as reviewController from "./coupon.controller.js";
+import * as couponController from "./coupon.controller.js";
 import { allowedTo, protectedRoutes } from "../Auth/auth.controller.js";
-export const reviewRouter = express.Router();
-reviewRouter
+export const couponRouter = express.Router();
+couponRouter
   .route("/")
-  .post(protectedRoutes, allowedTo("user"), reviewController.createReview)
-  .get(reviewController.getAllReviews);
-reviewRouter
+  .post(protectedRoutes, allowedTo("user"), couponController.createCoupon)
+  .get(couponController.getAllCoupons);
+  couponRouter
   .route("/:id")
-  .get(reviewController.getReview)
-  .put(protectedRoutes, allowedTo("user"), reviewController.updateReview)
-  .delete(protectedRoutes, allowedTo('admin',"user"), reviewController.deleteReview);
+  .get(couponController.getCoupon)
+  .put(protectedRoutes, allowedTo("user"), couponController.updateCoupon)
+  .delete(protectedRoutes, allowedTo('admin',"user"), couponController.deleteCoupon);

@@ -2,7 +2,7 @@ import { AppError } from "../../utils/AppError.js";
 import { catchAsyncError } from "../../middlewares/catchAsyncError.js";
 import * as factory from "../handlers/factor.handler.js";
 import { ApiFeatures } from "../../utils/ApiFeatures.js";
-import { couponModel } from "./../../../database/models/coupon.model.js";
+import { couponModel } from "../../../database/models/coupon.model.js";
 import qrCode from "qrcode";
 
 const createCoupon = catchAsyncError(async (req, res, next) => {
